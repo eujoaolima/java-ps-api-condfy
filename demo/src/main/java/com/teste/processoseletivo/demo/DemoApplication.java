@@ -14,7 +14,7 @@ public class DemoApplication {
 	/*
 		ITENS A FAZER
 		- Corrigir o relacionamento das entidades (1:N)
-
+		- Adicionar lógica de numeração nos ENUMS (springboot-api -> orderstatus)
         - Desenvolver a listagem com filtro por nome
 		- Testar tudo no POSTMAN
 
