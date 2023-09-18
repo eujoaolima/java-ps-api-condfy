@@ -4,9 +4,7 @@ import com.teste.processoseletivo.demo.enums.Tipo;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "camera")
@@ -20,18 +18,17 @@ public class Camera implements Serializable {
     private String nome;
     @Column(name = "protocolo")
     private Tipo protocolo;
-
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "canal_id")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "camera")
     private List<Canal> canais = new ArrayList<>();
 
     public Camera() {
     }
 
-    public Camera(Long id, String nome, Tipo protocolo) {
+    public Camera(Long id, String nome, Tipo protocolo, List<Canal> canais) {
         this.id = id;
         this.nome = nome;
         this.protocolo = protocolo;
+        this.canais = canais;
     }
 
     public Long getId() {

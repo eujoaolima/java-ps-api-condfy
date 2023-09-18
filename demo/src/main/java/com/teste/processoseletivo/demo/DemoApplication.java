@@ -13,10 +13,15 @@ public class DemoApplication {
 
 	/*
 		ITENS A FAZER
+
+		OBRIGATÓRIOS:
 		- Corrigir o relacionamento das entidades (1:N)
-		- Adicionar lógica de numeração nos ENUMS (springboot-api -> orderstatus)
-        - Desenvolver a listagem com filtro por nome
+        - Desenvolver a listagem com filtro por nome OK
 		- Testar tudo no POSTMAN
+
+		OPCIONAIS:
+		- Adicionar lógica de numeração nos ENUMS (springboot-api -> orderstatus)
+		- Adicionar tratamento de exceções
 
 
 		*** CÂMERA ***

@@ -1,15 +1,19 @@
 package com.teste.processoseletivo.demo.entity.dto;
 
 import com.teste.processoseletivo.demo.entity.Camera;
+import com.teste.processoseletivo.demo.entity.Canal;
 import com.teste.processoseletivo.demo.enums.Tipo;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class CameraDTO implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
     private String nome;
     private Tipo protocolo;
+    private List<CanalDTO> canais;
 
     public CameraDTO() {
     }
@@ -18,6 +22,7 @@ public class CameraDTO implements Serializable {
         this.id = camera.getId();
         this.nome = camera.getNome();
         this.protocolo = camera.getProtocolo();
+        this.canais = camera.getCanais().stream().map(CanalDTO::new).collect(Collectors.toList());
     }
 
     public static Camera convert(CameraDTO dto) {
@@ -25,6 +30,10 @@ public class CameraDTO implements Serializable {
         camera.setId(dto.getId());
         camera.setNome(dto.getNome());
         camera.setProtocolo(dto.getProtocolo());
+        if (dto.getCanais() != null) {
+            List<Canal> canais = dto.getCanais().stream().map(CanalDTO::convert).collect(Collectors.toList());
+            camera.setCanais(canais);
+        }
         return camera;
     }
 
@@ -50,5 +59,13 @@ public class CameraDTO implements Serializable {
 
     public void setProtocolo(Tipo protocolo) {
         this.protocolo = protocolo;
+    }
+
+    public List<CanalDTO> getCanais() {
+        return canais;
+    }
+
+    public void setCanais(List<CanalDTO> canais) {
+        this.canais = canais;
     }
 }

@@ -18,8 +18,8 @@ public class Canal implements Serializable {
     private int numero;
     @Column(name="descricao")
     private String descricao;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "camera_id")
+    @ManyToOne
+    @JoinColumn(name = "camera")
     private Camera camera;
 
     public Canal() {

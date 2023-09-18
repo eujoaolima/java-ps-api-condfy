@@ -31,17 +31,20 @@ public class CameraService {
 
 	@GetMapping("/camera/{id}")
     public CameraDTO findById(@PathVariable Long id) {
-        Optional<Camera> camera = this.repository.findById(id);
-        if (camera.isEmpty()) {
-            throw new RuntimeException("A camera não foi encontrada");
+        Optional<Camera> cameraOp = this.repository.findById(id);
+        if (cameraOp.isEmpty()) {
+            throw new RuntimeException("A câmera não foi encontrada");
         } else {
-            return new CameraDTO(camera.get());
+            Camera camera = cameraOp.get();
+            camera.getCanais().size();
+            return new CameraDTO(camera);
         }
     }
 
 	@GetMapping("/camera")
     public List<CameraDTO> findAll() {
-        List<Camera> lista = this.repository.findAll();
+//      List<Camera> lista = this.repository.findAll();
+        List<Camera> lista = this.repository.findAllByOrderByNomeAsc();
         return lista.stream().map(CameraDTO::new).collect(Collectors.toList());
     }
 	

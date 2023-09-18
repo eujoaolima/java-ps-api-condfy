@@ -27,4 +27,9 @@ public class CanalController {
     public CanalDTO findById(@PathVariable Long id) {
         return this.service.findById(id);
     }
+
+    @DeleteMapping("/{id}")
+    public CanalDTO deleteById(@PathVariable Long id) {
+        return this.service.deleteById(id);
+    }
 }
