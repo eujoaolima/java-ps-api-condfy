@@ -19,9 +19,9 @@ public class Camera implements Serializable {
     private String nome;
     @Column(name = "protocolo")
     private Tipo protocolo;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "ID_CAMERA", referencedColumnName = "id")
-    private List<Canal> canais;
+    private List<Canal> canais = new ArrayList<>();
 
     public Camera() {
     }
@@ -77,13 +77,17 @@ public class Camera implements Serializable {
         return Objects.hash(id);
     }
 
+    public void addCanal(Canal canal) {
+        getCanais().add(canal);
+    }
+
     @Override
     public String toString() {
         return "Camera{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", protocolo=" + protocolo + '\'' +
-                ", canais=" + canais + '\'' +
+                ", protocolo='" + protocolo + '\'' +
+                ", canais=" + canais  +
                 '}';
     }
 }

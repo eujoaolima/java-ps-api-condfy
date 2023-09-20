@@ -17,9 +17,6 @@ public class Canal implements Serializable {
     private int numero;
     @Column(name="descricao")
     private String descricao;
-    @ManyToOne
-    @JoinColumn(name = "ID_CANAL")
-    private Camera camera;
 
     public Canal() {
     }
@@ -54,14 +51,6 @@ public class Canal implements Serializable {
         this.descricao = descricao;
     }
 
-    public Camera getCamera() {
-        return camera;
-    }
-
-    public void setCamera(Camera camera) {
-        this.camera = camera;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -81,7 +70,7 @@ public class Canal implements Serializable {
                 "id=" + id +
                 ", numero=" + numero +
                 ", descricao='" + descricao + '\'' +
-                ", camera='" + camera + '\'' +
+//                ", camera='" + camera + '\'' +
                 '}';
     }
 }

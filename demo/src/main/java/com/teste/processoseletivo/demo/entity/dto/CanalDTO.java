@@ -10,7 +10,6 @@ public class CanalDTO implements Serializable {
     private Long id;
     private int numero;
     private String descricao;
-    private Camera camera;
 
     public CanalDTO() {
     }
@@ -19,7 +18,6 @@ public class CanalDTO implements Serializable {
         this.id = canal.getId();
         this.numero = canal.getNumero();
         this.descricao = canal.getDescricao();
-        this.camera = canal.getCamera();
     }
 
     public static Canal convert(CanalDTO dto) {
@@ -27,10 +25,6 @@ public class CanalDTO implements Serializable {
         canal.setId(dto.getId());
         canal.setNumero(dto.getNumero());
         canal.setDescricao(dto.getDescricao());
-        if (canal.getCamera() != null) {
-            canal.setId(canal.getCamera().getId());
-            canal.setCamera(dto.getCamera());
-        }
         return canal;
     }
 
@@ -56,13 +50,5 @@ public class CanalDTO implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public Camera getCamera() {
-        return camera;
-    }
-
-    public void setCamera(Camera camera) {
-        this.camera = camera;
     }
 }
