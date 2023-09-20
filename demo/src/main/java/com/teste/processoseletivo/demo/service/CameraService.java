@@ -2,6 +2,7 @@ package com.teste.processoseletivo.demo.service;
 
 import com.teste.processoseletivo.demo.entity.Camera;
 import com.teste.processoseletivo.demo.entity.dto.CameraDTO;
+import com.teste.processoseletivo.demo.entity.dto.CanalDTO;
 import com.teste.processoseletivo.demo.repository.CameraRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,5 +61,12 @@ public class CameraService {
         CameraDTO dto = findById(id);
         this.repository.deleteById(id);
         return dto;
+    }
+
+    @DeleteMapping("/canal")
+    public List<CameraDTO> deleteAll() {
+        List<CameraDTO> camera = findAll();
+        this.repository.deleteAll();
+        return camera;
     }
 }

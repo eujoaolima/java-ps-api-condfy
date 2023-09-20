@@ -37,4 +37,9 @@ public class CameraController {
     public CameraDTO deleteById(@PathVariable Long id) {
         return this.service.deleteById(id);
     }
+
+    @DeleteMapping
+    public List<CameraDTO> deleteAll() {
+        return this.service.deleteAll();
+    }
 }
