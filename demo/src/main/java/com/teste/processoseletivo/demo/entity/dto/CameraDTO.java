@@ -3,6 +3,10 @@ package com.teste.processoseletivo.demo.entity.dto;
 import com.teste.processoseletivo.demo.entity.Camera;
 import com.teste.processoseletivo.demo.entity.Canal;
 import com.teste.processoseletivo.demo.enums.Tipo;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,8 +14,12 @@ import java.util.List;
 public class CameraDTO implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
+    @NotBlank(message="O nome deve ser preenchido")
     private String nome;
+    @NotNull(message="O tipo do protocolo deve ser preenchido")
     private Tipo protocolo;
+    @NotEmpty(message="Você deve inserir algum canal à câmera")
+    @Valid
     private List<CanalDTO> canais;
 
     public CameraDTO() {

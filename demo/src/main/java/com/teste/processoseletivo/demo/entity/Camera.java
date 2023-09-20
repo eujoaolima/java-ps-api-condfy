@@ -15,10 +15,10 @@ public class Camera implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Column(name = "nome")
+    @Column(name = "nome", nullable=false)
     private String nome;
-    @Column(name = "protocolo")
-    private Tipo protocolo;
+    @Column(name = "protocolo", nullable=false)
+    private Integer protocolo;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "ID_CAMERA", referencedColumnName = "id")
     private List<Canal> canais = new ArrayList<>();
@@ -29,7 +29,7 @@ public class Camera implements Serializable {
     public Camera(Long id, String nome, Tipo protocolo) {
         this.id = id;
         this.nome = nome;
-        this.protocolo = protocolo;
+        setProtocolo(protocolo);
     }
 
     public Long getId() {
@@ -49,11 +49,13 @@ public class Camera implements Serializable {
     }
 
     public Tipo getProtocolo() {
-        return protocolo;
+        return Tipo.valueOf(protocolo);
     }
 
     public void setProtocolo(Tipo protocolo) {
-        this.protocolo = protocolo;
+        if (protocolo != null) {
+            this.protocolo = protocolo.getCodigo();
+        }
     }
 
     public List<Canal> getCanais() {

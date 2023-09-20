@@ -13,9 +13,9 @@ public class Canal implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
-    @Column(name="numero")
+    @Column(name="numero", nullable = false)
     private int numero;
-    @Column(name="descricao")
+    @Column(name="descricao", nullable = false)
     private String descricao;
 
     public Canal() {

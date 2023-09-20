@@ -1,14 +1,18 @@
 package com.teste.processoseletivo.demo.entity.dto;
 
-import com.teste.processoseletivo.demo.entity.Camera;
 import com.teste.processoseletivo.demo.entity.Canal;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 
 public class CanalDTO implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
+    @NotNull(message="O número do canal precisa ser preenchido")
     private int numero;
+    @NotBlank(message="É necessário colocar uma descrição no canal")
     private String descricao;
 
     public CanalDTO() {

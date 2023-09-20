@@ -2,6 +2,7 @@ package com.teste.processoseletivo.demo.controller;
 
 import com.teste.processoseletivo.demo.entity.dto.CameraDTO;
 import com.teste.processoseletivo.demo.service.CameraService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +15,7 @@ public class CameraController {
     private CameraService service;
 
     @PostMapping
-    public CameraDTO save(@RequestBody CameraDTO dto) {
+    public CameraDTO save(@Valid @RequestBody CameraDTO dto) {
         return this.service.save(dto);
     }
 
@@ -29,7 +30,7 @@ public class CameraController {
     }
 
     @PutMapping("/{id}")
-    public CameraDTO updateById(@PathVariable Long id, @RequestBody CameraDTO dto) {
+    public CameraDTO updateById(@PathVariable Long id, @RequestBody @Valid CameraDTO dto) {
         return this.service.updateById(id, dto);
     }
 

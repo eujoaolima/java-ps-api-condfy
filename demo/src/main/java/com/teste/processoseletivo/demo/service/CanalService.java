@@ -4,6 +4,7 @@ import com.teste.processoseletivo.demo.entity.Canal;
 import com.teste.processoseletivo.demo.entity.dto.CameraDTO;
 import com.teste.processoseletivo.demo.entity.dto.CanalDTO;
 import com.teste.processoseletivo.demo.repository.CanalRepository;
+import com.teste.processoseletivo.demo.service.exceptions.DatabaseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,8 +22,11 @@ public class CanalService {
     @PostMapping("/canal")
     public CanalDTO save(CanalDTO dto) {
         Canal canal = CanalDTO.convert(dto);
+        if (canal.getNumero() <= 0) {
+            throw new DatabaseException("O número inserido deve ser maior que zero");
+        }
         canal = this.repository.save(canal);
-        System.out.println("Canal criado: " + canal);
+        // System.out.println("Canal criado: " + canal);
         return new CanalDTO(canal);
     }
     @GetMapping("/canal")
@@ -34,7 +38,7 @@ public class CanalService {
     public CanalDTO findById(Long id) {
         Optional<Canal> canal = this.repository.findById(id);
         if (canal.isEmpty()) {
-            throw new RuntimeException("O canal não foi encontrado");
+            throw new DatabaseException("O canal não foi encontrado");
         } else {
             return new CanalDTO(canal.get());
         }

@@ -1,4 +1,5 @@
 
-a	java:S112$"FDefine and throw a dedicated exception instead of using a generic one.(Ê§8©±Çùª1
-G	java:S106"+Replace this use of System.out by a logger.(òë‹®8º±Çùª1
-X	java:S125,"<This block of commented-out lines of code should be removed.(åÒá8¾±Çùª1
+]	java:S125"<This block of commented-out lines of code should be removed.(ä’Ã¼ÿÿÿÿÿ8¸™Ğ«1
+X	java:S125."<This block of commented-out lines of code should be removed.(åÒá8¼™Ğ«1
+r
+java:S1128"PRemove this unused import 'com.teste.processoseletivo.demo.entity.dto.CanalDTO'.(ìö…ºøÿÿÿÿ8¾™Ğ«1

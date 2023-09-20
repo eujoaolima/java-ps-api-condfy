@@ -25,3 +25,17 @@ Kdemo/src/main/java/com/teste/processoseletivo/demo/entity/dto/CanalDTO.java,e\
 Ldemo/src/main/java/com/teste/processoseletivo/demo/entity/dto/CameraDTO.java,4\3\4361968c44fad931db4252f6c9c1891e1cbe6afd
 |
 Ldemo/src/main/java/com/teste/processoseletivo/demo/service/CanalService.java,2\1\218fe408959d8cf0e325d09e27865235f693c7a3
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+w
+G.idea/sonarlint/issuestore/7/5/75b24f4304e3fc1f6bc8a762ca0efba737b5fad0,e\0\e0a1e5de6892c6f4f08bf7d8b7224660e1d18d42
+Œ
+\demo/src/main/java/com/teste/processoseletivo/demo/service/exceptions/DatabaseException.java,4\7\47ee7470dd0795460d64a7d90caa5ade0bc1c0bd
+”
+ddemo/src/main/java/com/teste/processoseletivo/demo/service/exceptions/ResourceNotFoundException.java,f\e\fe2aa72e8751cef60caebda9e3a13f946c0a2bec
+‹
+[demo/src/main/java/com/teste/processoseletivo/demo/repository/exceptions/StandardError.java,6\f\6f270e5998112e432b127c8cfff498344fcb1cbf
+–
+fdemo/src/main/java/com/teste/processoseletivo/demo/repository/exceptions/ResourceExceptionHandler.java,8\a\8a645d463e1fa498ef366fa2dab911c0bbfcffa7

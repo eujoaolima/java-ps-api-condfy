@@ -5,6 +5,7 @@ import com.teste.processoseletivo.demo.entity.dto.CameraDTO;
 import com.teste.processoseletivo.demo.entity.dto.CanalDTO;
 import com.teste.processoseletivo.demo.repository.CameraRepository;
 
+import com.teste.processoseletivo.demo.service.exceptions.DatabaseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,7 +27,7 @@ public class CameraService {
     public CameraDTO save(@RequestBody CameraDTO dto) {
         Camera camera = CameraDTO.convert(dto);
         camera = this.repository.save(camera);
-        System.out.println(camera);
+        // System.out.println(camera);
         return new CameraDTO(camera);
     }
 
@@ -34,7 +35,7 @@ public class CameraService {
     public CameraDTO findById(@PathVariable Long id) {
         Optional<Camera> camera = this.repository.findById(id);
         if (camera.isEmpty()) {
-            throw new RuntimeException("A câmera não foi encontrada");
+            throw new DatabaseException("A câmera não foi encontrada");
         } else {
             return new CameraDTO(camera.get());
         }
