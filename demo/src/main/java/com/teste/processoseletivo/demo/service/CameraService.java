@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class CameraService {
@@ -26,18 +25,17 @@ public class CameraService {
     public CameraDTO save(@RequestBody CameraDTO dto) {
         Camera camera = CameraDTO.convert(dto);
         camera = this.repository.save(camera);
+        System.out.println(camera);
         return new CameraDTO(camera);
     }
 
 	@GetMapping("/camera/{id}")
     public CameraDTO findById(@PathVariable Long id) {
-        Optional<Camera> cameraOp = this.repository.findById(id);
-        if (cameraOp.isEmpty()) {
+        Optional<Camera> camera = this.repository.findById(id);
+        if (camera.isEmpty()) {
             throw new RuntimeException("A câmera não foi encontrada");
         } else {
-            Camera camera = cameraOp.get();
-            camera.getCanais().size();
-            return new CameraDTO(camera);
+            return new CameraDTO(camera.get());
         }
     }
 
@@ -45,7 +43,7 @@ public class CameraService {
     public List<CameraDTO> findAll() {
 //      List<Camera> lista = this.repository.findAll();
         List<Camera> lista = this.repository.findAllByOrderByNomeAsc();
-        return lista.stream().map(CameraDTO::new).collect(Collectors.toList());
+        return lista.stream().map(CameraDTO::new).toList();
     }
 	
 	@PutMapping("/camera/{id}")

@@ -18,18 +18,19 @@ import java.util.stream.Collectors;
 public class CanalService {
     @Autowired
     private CanalRepository repository;
-    @PostMapping
+    @PostMapping("/canal")
     public CanalDTO save(CanalDTO dto) {
         Canal canal = CanalDTO.convert(dto);
         canal = this.repository.save(canal);
+        System.out.println("Canal criado: " + canal);
         return new CanalDTO(canal);
     }
-    @GetMapping
+    @GetMapping("/canal")
     public List<CanalDTO> findAll() {
         List<Canal> lista = this.repository.findAll();
         return lista.stream().map(CanalDTO::new).collect(Collectors.toList());
     }
-    @GetMapping("/{id}")
+    @GetMapping("/canal/{id}")
     public CanalDTO findById(Long id) {
         Optional<Canal> canal = this.repository.findById(id);
         if (canal.isEmpty()) {
@@ -38,10 +39,17 @@ public class CanalService {
             return new CanalDTO(canal.get());
         }
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/canal/{id}")
     public CanalDTO deleteById(Long id) {
         CanalDTO dto = findById(id);
         this.repository.deleteById(id);
         return dto;
+    }
+
+    @DeleteMapping("/canal")
+    public List<CanalDTO> deleteAll() {
+        List<CanalDTO> canal = findAll();
+        this.repository.deleteAll();
+        return canal;
     }
 }

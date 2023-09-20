@@ -3,7 +3,6 @@ package com.teste.processoseletivo.demo.entity;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Objects;
 
 @Entity
@@ -19,7 +18,7 @@ public class Canal implements Serializable {
     @Column(name="descricao")
     private String descricao;
     @ManyToOne
-    @JoinColumn(name = "camera")
+    @JoinColumn(name = "ID_CANAL")
     private Camera camera;
 
     public Canal() {
@@ -82,6 +81,7 @@ public class Canal implements Serializable {
                 "id=" + id +
                 ", numero=" + numero +
                 ", descricao='" + descricao + '\'' +
+                ", camera='" + camera + '\'' +
                 '}';
     }
 }

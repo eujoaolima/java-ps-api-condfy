@@ -6,7 +6,6 @@ import com.teste.processoseletivo.demo.enums.Tipo;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CameraDTO implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -22,7 +21,7 @@ public class CameraDTO implements Serializable {
         this.id = camera.getId();
         this.nome = camera.getNome();
         this.protocolo = camera.getProtocolo();
-        this.canais = camera.getCanais().stream().map(CanalDTO::new).collect(Collectors.toList());
+        this.canais = camera.getCanais().stream().map(CanalDTO::new).toList();
     }
 
     public static Camera convert(CameraDTO dto) {
@@ -31,7 +30,7 @@ public class CameraDTO implements Serializable {
         camera.setNome(dto.getNome());
         camera.setProtocolo(dto.getProtocolo());
         if (dto.getCanais() != null) {
-            List<Canal> canais = dto.getCanais().stream().map(CanalDTO::convert).collect(Collectors.toList());
+            List<Canal> canais = dto.getCanais().stream().map(CanalDTO::convert).toList();
             camera.setCanais(canais);
         }
         return camera;

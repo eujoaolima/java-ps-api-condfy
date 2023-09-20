@@ -16,7 +16,6 @@ public class DemoApplication {
 
 		OBRIGATÓRIOS:
 		- Corrigir o relacionamento das entidades (1:N)
-        - Desenvolver a listagem com filtro por nome OK
 		- Testar tudo no POSTMAN
 
 		OPCIONAIS:
@@ -25,11 +24,9 @@ public class DemoApplication {
 
 
 		*** CÂMERA ***
-		- FindAll() OK
-		- FindById() OK
-		- Save() OK
-		- UpdateById() OK
-		- DeleteById() OK
+		- FindAll() -> Não reconhece o relacionamento, então o problema está quando você CRIA uma câmera
+		- FindById() -> Não reconhece o relacionamento, então o problema está quando você CRIA uma câmera
+		- Save() -> Encontrar o porquê de não estar criando o relacionamento entre Camera e Canal
 
 		*** CANAL ***
 		- FindAll() OK

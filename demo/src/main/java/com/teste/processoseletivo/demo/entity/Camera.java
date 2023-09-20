@@ -10,6 +10,7 @@ import java.util.*;
 @Table(name = "camera")
 public class Camera implements Serializable {
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -18,17 +19,17 @@ public class Camera implements Serializable {
     private String nome;
     @Column(name = "protocolo")
     private Tipo protocolo;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "camera")
-    private List<Canal> canais = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_CAMERA", referencedColumnName = "id")
+    private List<Canal> canais;
 
     public Camera() {
     }
 
-    public Camera(Long id, String nome, Tipo protocolo, List<Canal> canais) {
+    public Camera(Long id, String nome, Tipo protocolo) {
         this.id = id;
         this.nome = nome;
         this.protocolo = protocolo;
-        this.canais = canais;
     }
 
     public Long getId() {
@@ -81,7 +82,8 @@ public class Camera implements Serializable {
         return "Camera{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", protocolo=" + protocolo +
+                ", protocolo=" + protocolo + '\'' +
+                ", canais=" + canais + '\'' +
                 '}';
     }
 }

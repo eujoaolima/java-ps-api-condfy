@@ -1,4 +1,4 @@
 
-g	java:S112$"FDefine and throw a dedicated exception instead of using a generic one.(ìè“ªúÿÿÿÿ8ğÓÉ©1
-t
-java:S6204-"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(î§¯¸ûÿÿÿÿ8¶ğÓÉ©1
+a	java:S112$"FDefine and throw a dedicated exception instead of using a generic one.(Ê§8©±Çùª1
+G	java:S106"+Replace this use of System.out by a logger.(òë‹®8º±Çùª1
+X	java:S125,"<This block of commented-out lines of code should be removed.(åÒá8¾±Çùª1

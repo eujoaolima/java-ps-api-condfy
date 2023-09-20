@@ -32,4 +32,9 @@ public class CanalController {
     public CanalDTO deleteById(@PathVariable Long id) {
         return this.service.deleteById(id);
     }
+
+    @DeleteMapping
+    public List<CanalDTO> deleteAll() {
+        return this.service.deleteAll();
+    }
 }

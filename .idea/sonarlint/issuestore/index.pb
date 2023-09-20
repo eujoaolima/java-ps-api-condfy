@@ -25,5 +25,3 @@ Kdemo/src/main/java/com/teste/processoseletivo/demo/entity/dto/CanalDTO.java,e\
 Ldemo/src/main/java/com/teste/processoseletivo/demo/entity/dto/CameraDTO.java,4\3\4361968c44fad931db4252f6c9c1891e1cbe6afd
 |
 Ldemo/src/main/java/com/teste/processoseletivo/demo/service/CanalService.java,2\1\218fe408959d8cf0e325d09e27865235f693c7a3
-y
-Idemo/src/main/java/com/teste/processoseletivo/demo/config/TestConfig.java,d\7\d731c0e6b033fb420495ab02c9a7d050cfadb9c1
